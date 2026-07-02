@@ -7,8 +7,8 @@ import string
 
 ps = PorterStemmer()
 
-tfidf = pickle.load(open('D:\\Project\\Spam-Classifier\\artifact\\vectorizer.pkl', 'rb'))
-model = pickle.load(open('D:\\Project\\Spam-Classifier\\artifact\\model.pkl', 'rb'))
+tfidf = pickle.load(open('artifact\\vectorizer.pkl', 'rb'))
+model = pickle.load(open('artifact\\model.pkl', 'rb'))
 
 def transform_text(text):
     text = text.lower()
