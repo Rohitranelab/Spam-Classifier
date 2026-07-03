@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pickle
 from nltk.stem import PorterStemmer
@@ -7,8 +8,9 @@ import string
 
 ps = PorterStemmer()
 
-tfidf = pickle.load(open('artifact/vectorizer.pkl', 'rb'))
-model = pickle.load(open('artifact/model.pkl', 'rb'))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+tfidf = pickle.load(open(os.path.join(BASE_DIR, 'artifact', 'vectorizer.pkl'), 'rb'))
+model = pickle.load(open(os.path.join(BASE_DIR, 'artifact', 'model.pkl'), 'rb'))
 
 def transform_text(text):
     text = text.lower()
