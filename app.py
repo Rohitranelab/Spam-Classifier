@@ -6,13 +6,21 @@ from nltk.corpus import stopwords
 import nltk
 import string
 
-nltk.download('punkt_tab')
-nltk.download('stopwords')
-ps = PorterStemmer()
+@st.cache_resource
+def load_nltk_data():
+    nltk.download('punkt_tab', quiet=True)
+    nltk.download('stopwords', quiet=True)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-tfidf = pickle.load(open(os.path.join(BASE_DIR, 'artifact', 'vectorizer.pkl'), 'rb'))
-model = pickle.load(open(os.path.join(BASE_DIR, 'artifact', 'model.pkl'), 'rb'))
+@st.cache_resource
+def load_model_artifacts():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    tfidf = pickle.load(open(os.path.join(BASE_DIR, 'artifact', 'vectorizer.pkl'), 'rb'))
+    model = pickle.load(open(os.path.join(BASE_DIR, 'artifact', 'model.pkl'), 'rb'))
+    return tfidf, model
+
+load_nltk_data()
+tfidf, model = load_model_artifacts()
+ps = PorterStemmer()
 
 def transform_text(text):
     text = text.lower()
