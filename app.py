@@ -6,6 +6,8 @@ from nltk.corpus import stopwords
 import nltk
 import string
 
+nltk.download('punkt_tab')
+nltk.download('stopwords')
 ps = PorterStemmer()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
