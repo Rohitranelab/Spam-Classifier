@@ -141,16 +141,7 @@ The app will open automatically at `http://localhost:8501`.
 ## 🚀 Live Demo
 
 ```text
-https://your-app-name.onrender.com
-```
-
----
-
-## 🖼️ Preview
-
-> _Add a screenshot or GIF of the app here to make the README pop:_
-```
-![App Screenshot](assets/demo.png)
+https://spam-classifier-l63t.onrender.com
 ```
 
 ---
